@@ -25,19 +25,18 @@ const Admin = (propos) => {
     <Fragment>
       <ErrorModal error={error} onClear={clearError} />
       {loadedAdmin && <AdminList items={loadedAdmin} />}
-      <div className="button">
+      <div>
         <Button Link to="/assignTask">
           ASSIGN TASK
         </Button>
-      </div>
-      <div className="button">
         <Button Link to="/addNewEmployee">
           ADD NEW EMPLOYEE
         </Button>
-      </div>
-      <div className="button">
         <Button Link to="/taskGiventoEmployee">
           VIEW TASK GIVEN TO EMPLOYEE
+        </Button>
+        <Button Link to="/viewAllLeave">
+          VIEW ALL LEAVE
         </Button>
       </div>
     </Fragment>

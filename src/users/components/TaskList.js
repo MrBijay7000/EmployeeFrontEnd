@@ -12,7 +12,7 @@ const TaskList = (props) => {
   }
 
   return (
-    <ul className="task-list">
+    <ul className="admin-list">
       {props.items.map((user) => (
         <TaskItem
           key={user.id}

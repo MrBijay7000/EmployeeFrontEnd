@@ -2,7 +2,7 @@ import React from "react";
 import TaskItem from "./AdminTaskItem";
 import "./AdminTaskList.css";
 
-const AdminTaskList = (props) => {
+const AdminViewLeaveList = (props) => {
   if (props.items.length === 0) {
     return (
       <div className="center">
@@ -12,7 +12,7 @@ const AdminTaskList = (props) => {
   }
 
   return (
-    <ul className="place-list">
+    <ul className="admin-list">
       {props.items.map((user) => (
         <TaskItem
           key={user.id}
@@ -29,4 +29,4 @@ const AdminTaskList = (props) => {
   );
 };
 
-export default AdminTaskList;
+export default AdminViewLeaveList;

@@ -5,12 +5,7 @@ import React, {
   Fragment,
   useContext,
 } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  useNavigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import Auth from "./users/pages/Auth";
 import EmployeechangePassword from "./users/pages/ChangePassword";
@@ -19,15 +14,19 @@ import LeaveRequestUL from "./users/pages/Leave";
 import ViewProfile from "./users/pages/ViewProfile";
 import ViewTask from "./users/pages/ViewTask";
 import { AuthContext } from "./shared/context/auth-context";
+
 import Admin from "./admin/pages/Admin";
 import AssignTask from "./admin/pages/AssignTask";
-import Auths from "./admin/pages/Auth.";
 import AddNewEmployee from "./admin/pages/AddNewEmployee";
 import TaskGiven from "./admin/pages/TaskGiven";
 import AdminDetails from "./admin/pages/AdminDetails";
+import ViewAllEmployee from "./admin/pages/ViewAllEmployees";
+import ChangePassword from "./admin/pages/ChangePassword";
+import ViewEmployeeDetails from "./admin/pages/ViewEmployeeDetails";
+
 import Dashboard from "./shared/components/Dashboard/Dashboard";
 import LoadingSpinner from "./shared/components/UIElements/LoadingSpinner";
-import { Navigate } from "react-router-dom";
+import ViewAllLeave from "./admin/pages/ViewAllLeave";
 
 function App() {
   // const navigate = useNavigate();
@@ -114,10 +113,8 @@ function App() {
                 <Routes>
                   <>
                     <Route path="/" element={<Dashboard />} />
-
                     <Route path="/admin" element={<Admin />} />
                     <Route path="/assignTask" element={<AssignTask />} />
-                    <Route path="/auths" element={<Auths />} />
                     <Route
                       path="/addNewEmployee"
                       element={<AddNewEmployee />}
@@ -129,6 +126,19 @@ function App() {
                     <Route
                       path="/:id/admin-details"
                       element={<AdminDetails />}
+                    />
+                    <Route
+                      path="/viewAllEmployees"
+                      element={<ViewAllEmployee />}
+                    />{" "}
+                    <Route path="/viewAllLeave" element={<ViewAllLeave />} />
+                    <Route
+                      path="/:employeesId/viewEmployeeDetails"
+                      element={<ViewEmployeeDetails />}
+                    />
+                    <Route
+                      path="/adminChangepassword"
+                      element={<ChangePassword />}
                     />
                     {/*   
                 <Route path="/view-profile" element={<AdminViewProfile />} />
@@ -142,8 +152,11 @@ function App() {
               </Routes> */}
                     {/* <Routes> */}
                     <Route path="/employee" element={<Employee />} />
-                    <Route path="/view-profile" element={<ViewProfile />} />
-                    <Route path="/viewProfile/:id" element={<ViewProfile />} />
+                    {/* <Route path="/view-profile" element={<ViewProfile />} /> */}
+                    <Route
+                      path="/viewProfile/:employeeId"
+                      element={<ViewProfile />}
+                    />
                     <Route path="/viewTask" element={<ViewTask />} />
                     <Route path="/leave" element={<LeaveRequestUL />} />
                     <Route

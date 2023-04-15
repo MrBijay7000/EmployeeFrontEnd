@@ -8,7 +8,7 @@ import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import "./AdminTaskItem.css";
 
-const AdminTaskItem = (props) => {
+const AdminViewLeaveItem = (props) => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [showConfirmModal, setShowConfirmModal] = useState(false);
 
@@ -79,4 +79,4 @@ const AdminTaskItem = (props) => {
   );
 };
 
-export default AdminTaskItem;
+export default AdminViewLeaveItem;

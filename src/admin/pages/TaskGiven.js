@@ -1,14 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Input from "../../shared/components/FormElements/Input";
-import {
-  VALIDATOR_MINLENGTH,
-  VALIDATOR_REQUIRE,
-} from "../../shared/util/validators";
-import { useForm } from "../../shared/hooks/form-hook";
 import AdminTaskList from "../components/AdminTaskList";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 
-import Button from "../../shared/components/FormElements/Button";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 
 const TaskGiven = (props) => {
@@ -45,11 +38,19 @@ const TaskGiven = (props) => {
     fetchUsers();
   }, [sendRequest]);
 
+  const taskDeletedHandler = (deletedTaskId) => {
+    setLoadedTasks((prevTask) =>
+      prevTask.filter((task) => task.id !== deletedTaskId)
+    );
+  };
+
   return (
     <div>
       <ErrorModal error={error} onClear={clearError} />
 
-      {loadedTasks && <AdminTaskList items={loadedTasks} />}
+      {loadedTasks && (
+        <AdminTaskList items={loadedTasks} onDeleteTask={taskDeletedHandler} />
+      )}
     </div>
     // <form className="leave">
     //   <Input
