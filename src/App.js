@@ -152,7 +152,10 @@ function App() {
               </Routes> */}
                     {/* <Routes> */}
                     <Route path="/employee" element={<Employee />} />
-                    {/* <Route path="/view-profile" element={<ViewProfile />} /> */}
+                    <Route
+                      path="/employee/viewProfile"
+                      element={<ViewProfile />}
+                    />
                     <Route
                       path="/viewProfile/:employeeId"
                       element={<ViewProfile />}

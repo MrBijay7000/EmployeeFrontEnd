@@ -18,9 +18,11 @@ const AdminViewLeaveList = (props) => {
           key={user.id}
           id={user.id}
           title={user.title}
-          description={user.description}
+          reason={user.reason}
           startDate={user.startDate}
           endDate={user.endDate}
+          appliedDate={user.appliedDate}
+          duration={user.duration}
           status={user.status}
           onDelete={props.onDeleteTask}
         />

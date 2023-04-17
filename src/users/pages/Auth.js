@@ -117,7 +117,7 @@ const Auth = (props) => {
             email: formState.inputs.email.value,
             address: formState.inputs.address.value,
             phone: formState.inputs.phone.value,
-            dob: formState.inputs.dob.value,
+            dateofbirth: formState.inputs.dateofbirth.value,
             password: formState.inputs.password.value,
             role: userRole,
           }),
@@ -149,8 +149,8 @@ const Auth = (props) => {
                   type="text"
                   label="Your Name"
                   validators={[VALIDATOR_REQUIRE()]}
-                  placeholder="name@example.com"
-                  errorText="Please enter a name."
+                  placeholder="Your Name"
+                  errorText="Please enter a valid name."
                   onInput={inputHandler}
                 />
                 <Input
@@ -159,8 +159,8 @@ const Auth = (props) => {
                   type="text"
                   label="Address"
                   validators={[VALIDATOR_REQUIRE()]}
-                  placeholder="name@example.com"
-                  errorText="Please enter a name."
+                  placeholder="Your Address"
+                  errorText="Please enter a valid address."
                   onInput={inputHandler}
                 />
                 <Input
@@ -169,18 +169,17 @@ const Auth = (props) => {
                   type="text"
                   label="Your Phone Number"
                   validators={[VALIDATOR_REQUIRE()]}
-                  placeholder="name@example.com"
-                  errorText="Please enter a name."
+                  placeholder="+977 9841*****"
+                  errorText="Please enter a valid phonenumber."
                   onInput={inputHandler}
                 />
                 <Input
                   element="input"
-                  id="dob"
+                  id="dateofbirth"
                   type="date"
                   label="Your Date Birth"
                   validators={[VALIDATOR_REQUIRE()]}
-                  placeholder="name@example.com"
-                  errorText="Please enter a name."
+                  errorText="Please enter a valid birth date."
                   onInput={inputHandler}
                 />
                 <div className="form-control">

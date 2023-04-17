@@ -9,23 +9,27 @@ const Employee = (props) => {
   const { error, sendRequest, clearError } = useHttpClient();
   const [loadedUsers, setLoadedUSers] = useState();
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const responseData = await sendRequest(
-          "http://localhost:5001/api/users"
-        );
+  // useEffect(() => {
+  //   const fetchUsers = async () => {
+  //     try {
+  //       const responseData = await sendRequest(
+  //         "http://localhost:5001/api/users"
+  //       );
 
-        setLoadedUSers(responseData.users);
-      } catch (err) {}
-    };
-    fetchUsers();
-  }, [sendRequest]);
+  //       setLoadedUSers(responseData.users);
+  //     } catch (err) {}
+  //   };
+  //   fetchUsers();
+  // }, [sendRequest]);
 
   return (
     <div>
+      <div>
+        <img src="https://blog.vantagecircle.com/content/images/2020/08/Employee-recognition.png" />
+      </div>
       <ErrorModal error={error} onClear={clearError} />
       {loadedUsers && <UsersList items={loadedUsers} />}
+
       <div className="button">
         <Button Link to="/leave">
           APPLY FOR LEAVE
