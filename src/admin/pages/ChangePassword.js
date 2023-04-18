@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Card from "../../shared/components/FormElements/Card";
 import classes from "./ChangePassword.module.css";
+import Button from "../../shared/components/FormElements/Button";
 
 function ChangePassword(props) {
   const [enteredEmail, setEnteredEmail] = useState("");
@@ -81,9 +82,9 @@ function ChangePassword(props) {
           />
         </div>
         <div className={classes.actions}>
-          <button type="submit" className={classes.btn} disabled={!formIsValid}>
-            Login
-          </button>
+          <Button type="submit" className={classes.btn} disabled={!formIsValid}>
+            Change Password
+          </Button>
         </div>
       </form>
     </Card>

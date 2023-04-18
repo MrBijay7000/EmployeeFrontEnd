@@ -27,6 +27,7 @@ import ViewEmployeeDetails from "./admin/pages/ViewEmployeeDetails";
 import Dashboard from "./shared/components/Dashboard/Dashboard";
 import LoadingSpinner from "./shared/components/UIElements/LoadingSpinner";
 import ViewAllLeave from "./admin/pages/ViewAllLeave";
+import AdminUpdateUser from "./admin/pages/UpdateUser";
 
 function App() {
   // const navigate = useNavigate();
@@ -139,6 +140,10 @@ function App() {
                     <Route
                       path="/adminChangepassword"
                       element={<ChangePassword />}
+                    />
+                    <Route
+                      path="/update/:employeeId"
+                      element={<AdminUpdateUser />}
                     />
                     {/*   
                 <Route path="/view-profile" element={<AdminViewProfile />} />

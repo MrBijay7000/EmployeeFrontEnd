@@ -9,18 +9,18 @@ const Employee = (props) => {
   const { error, sendRequest, clearError } = useHttpClient();
   const [loadedUsers, setLoadedUSers] = useState();
 
-  // useEffect(() => {
-  //   const fetchUsers = async () => {
-  //     try {
-  //       const responseData = await sendRequest(
-  //         "http://localhost:5001/api/users"
-  //       );
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const responseData = await sendRequest(
+          "http://localhost:5001/api/users"
+        );
 
-  //       setLoadedUSers(responseData.users);
-  //     } catch (err) {}
-  //   };
-  //   fetchUsers();
-  // }, [sendRequest]);
+        setLoadedUSers(responseData.users);
+      } catch (err) {}
+    };
+    fetchUsers();
+  }, [sendRequest]);
 
   return (
     <div>
