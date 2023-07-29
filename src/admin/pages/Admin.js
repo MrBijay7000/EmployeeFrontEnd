@@ -36,9 +36,9 @@ const Admin = (propos) => {
         <Button Link to="/assignTask">
           ASSIGN TASK
         </Button>
-        <Button Link to="/addNewEmployee">
+        {/* <Button Link to="/addNewEmployee">
           ADD NEW EMPLOYEE
-        </Button>
+        </Button> */}
         <Button Link to="/taskGiventoEmployee">
           VIEW TASK GIVEN TO EMPLOYEE
         </Button>

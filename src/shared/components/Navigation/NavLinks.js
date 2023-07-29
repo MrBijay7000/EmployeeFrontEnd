@@ -46,7 +46,7 @@ const NavLinks = ({ loggedInUser }) => {
 
         {auth.isLoggedIn && role === "admin" ? (
           <li>
-            <NavLink to="/viewProfile">View Profile</NavLink>
+            <NavLink to="/:id/viewProfile">View Profile</NavLink>
           </li>
         ) : (
           auth.isLoggedIn && (

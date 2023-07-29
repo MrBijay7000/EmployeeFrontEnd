@@ -29,7 +29,7 @@ const ViewProfile = (props) => {
     };
     fetchUsers();
   }, [sendRequest, employeeId]);
-  console.log(loadedUsers);
+  console.log({ loadedUsers });
 
   if (isLoading) {
     return (
@@ -128,7 +128,7 @@ const ViewProfile = (props) => {
           id="email"
           element="textarea"
           type="textarea"
-          label="Hire Date"
+          label="Image"
           validorts={[VALIDATOR_REQUIRE()]}
           errorText="AAA"
           onInput={() => {}}

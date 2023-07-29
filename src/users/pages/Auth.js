@@ -42,6 +42,18 @@ const Auth = (props) => {
       //   value: "employee",
       //   isValid: false,
       // },
+      phone: {
+        value: "",
+        isValid: false,
+      },
+      dateofbirth: {
+        value: "",
+        isValid: false,
+      },
+      name: {
+        value: "",
+        isValid: false,
+      },
     },
     false
   );
@@ -220,7 +232,7 @@ const Auth = (props) => {
             </Button>
           </form>
           <Button inverse onClick={switchModeHandler}>
-            SWITCH TO {isLoginMode ? "SIGNUP" : "LOGIN"}{" "}
+            SWITCH TO {isLoginMode ? "SIGNUP" : "LOGIN"}
           </Button>
         </Card>
       </div>
