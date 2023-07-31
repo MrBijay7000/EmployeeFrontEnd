@@ -59,10 +59,12 @@ const AdminItem = (props) => {
             </div>
             <div className="place-item__info">
               <h2>Name: {props.name}</h2>
+              <h2>Employee Id: {props.id}</h2>
               <h3>Email: {props.email}</h3>
               <h3>Address: {props.address}</h3>
               <h3>Date of Birth: {props.dob}</h3>
               <h3>Phone: {props.phone}</h3>
+              <h3>Role: {props.role}</h3>
             </div>
           </Link>
           <div className="place-item__actions">
@@ -70,7 +72,7 @@ const AdminItem = (props) => {
               DELETE
             </Button>
 
-            <Button to={`/update/${props.id}`}>EDIT</Button>
+            {/* <Button to={`/update/${props.id}`}>EDIT</Button> */}
           </div>
         </Card>
       </li>

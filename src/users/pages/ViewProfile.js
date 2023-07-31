@@ -23,6 +23,7 @@ const ViewProfile = (props) => {
       try {
         const responseData = await sendRequest(
           `http://localhost:5001/api/users/${employeeId}`
+          // `http://localhost:5001/api/users/view/${employeeId}`
         );
         setLoadedUsers(responseData.user);
       } catch (err) {}

@@ -17,8 +17,9 @@ const TaskList = (props) => {
         <TaskItem
           key={user.id}
           id={user.id}
-          employeeId={user.employeeId}
-          title={user.title}
+          employeeId={user.id}
+          employeeName={user.employeeName}
+          taskName={user.taskName}
           description={user.description}
           taskgivendate={user.taskgivendate}
           status={user.status}

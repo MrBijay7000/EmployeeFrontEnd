@@ -43,19 +43,17 @@ const NavLinks = ({ loggedInUser }) => {
             Home
           </NavLink>
         </li>
-
         {auth.isLoggedIn && role === "admin" ? (
           <li>
-            <NavLink to="/:id/viewProfile">View Profile</NavLink>
+            <NavLink to="/assignTask">Assign Task</NavLink>
           </li>
         ) : (
           auth.isLoggedIn && (
             <li>
-              <NavLink to="/employee/viewProfile">View Profile</NavLink>
+              <NavLink to="/leave">Apply For Leave</NavLink>
             </li>
           )
         )}
-
         {auth.isLoggedIn && role === "admin" ? (
           <li>
             <NavLink to="/viewAllEmployees">View All Employees</NavLink>
@@ -63,14 +61,25 @@ const NavLinks = ({ loggedInUser }) => {
         ) : (
           auth.isLoggedIn && (
             <li>
-              <NavLink to="/viewTask">My Task</NavLink>
+              <NavLink to="/viewTask">Our Task</NavLink>
             </li>
           )
-        )}
-        {auth.isLoggedIn && (
+        )}{" "}
+        {/* {auth.isLoggedIn && (
           <li>
             <NavLink to="/adminChangepassword">Change Password</NavLink>
           </li>
+        )} */}
+        {auth.isLoggedIn && role === "admin" ? (
+          <li>
+            <NavLink to="/addNewEmployee">Add New Employee</NavLink>
+          </li>
+        ) : (
+          auth.isLoggedIn && (
+            <li>
+              <NavLink to="/notice">Notice Board</NavLink>
+            </li>
+          )
         )}
         {!auth.isLoggedIn && (
           <li>

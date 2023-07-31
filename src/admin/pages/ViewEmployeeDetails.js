@@ -26,6 +26,7 @@ const ViewEmployeeDetails = (props) => {
           `http://localhost:5001/api/admin/employee/${employeesId}`
         );
         setLoadedUsers(responseData.employee);
+        console.log({ responseData });
       } catch (err) {}
     };
     fetchUsers();
@@ -63,6 +64,17 @@ const ViewEmployeeDetails = (props) => {
           id="name"
           element="input"
           type="text"
+          label="Employee ID"
+          validorts={[VALIDATOR_REQUIRE()]}
+          errorText="AAA"
+          onInput={() => {}}
+          value={loadedUsers.id}
+          initialValid={true}
+        />
+        <Input
+          id="name"
+          element="input"
+          type="text"
           label="Name"
           validorts={[VALIDATOR_REQUIRE()]}
           errorText="AAA"
@@ -93,14 +105,47 @@ const ViewEmployeeDetails = (props) => {
           initialValid={true}
         />
         <Input
+          id="address"
+          element="input"
+          type="text"
+          label="Phone"
+          validorts={[VALIDATOR_REQUIRE()]}
+          errorText="AAA"
+          onInput={() => {}}
+          value={loadedUsers.phone}
+          initialValid={true}
+        />
+        <Input
+          id="address"
+          element="input"
+          type="text"
+          label="Phone"
+          validorts={[VALIDATOR_REQUIRE()]}
+          errorText="AAA"
+          onInput={() => {}}
+          value={loadedUsers.phone}
+          initialValid={true}
+        />
+        <Input
+          id="address"
+          element="input"
+          type="text"
+          label="Role"
+          validorts={[VALIDATOR_REQUIRE()]}
+          errorText="AAA"
+          onInput={() => {}}
+          value={loadedUsers.role}
+          initialValid={true}
+        />
+        <Input
           id="dob"
           element="input"
-          type="date"
+          // type="date"
           label="Date Of Birth"
           validorts={[VALIDATOR_REQUIRE()]}
           errorText="AAA"
           onInput={() => {}}
-          value={loadedUsers.dob}
+          value={loadedUsers.dateofbirth}
           initialValid={true}
         />
         <Button type="submit" onClick={okayFormHandler}>

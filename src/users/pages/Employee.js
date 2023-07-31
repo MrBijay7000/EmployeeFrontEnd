@@ -5,6 +5,7 @@ import UsersList from "../components/UsersList";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 
 import "./Employee.css";
+import ImageSliderE from "../../shared/components/FormElements/ImageSliderE";
 const Employee = (props) => {
   const { error, sendRequest, clearError } = useHttpClient();
   const [loadedUsers, setLoadedUSers] = useState();
@@ -25,10 +26,11 @@ const Employee = (props) => {
   return (
     <div>
       <div>
-        <img src="https://blog.vantagecircle.com/content/images/2020/08/Employee-recognition.png" />
+        <ImageSliderE />
       </div>
+
       <ErrorModal error={error} onClear={clearError} />
-      {loadedUsers && <UsersList items={loadedUsers} />}
+      {/* {loadedUsers && <UsersList items={loadedUsers} />} */}
 
       <div className="button">
         <Button Link to="/leave">

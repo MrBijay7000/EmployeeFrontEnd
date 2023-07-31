@@ -11,39 +11,22 @@ import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import { useNavigate } from "react-router-dom";
 
 import "./AssignTask.css";
-import DropdownComponent from "../../shared/components/UIElements/Dropdown";
 
-const AssignTask = (props) => {
+const CreateNotice = (props) => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const navigate = useNavigate();
 
   const [formState, inputHandler] = useForm(
     {
-      employeeName: {
+      title: {
         value: "",
         isValid: false,
       },
-      taskName: {
+      date: {
         value: "",
         isValid: false,
       },
-      // assignedTo: {
-      //   value: "",
-      //   isValid: false,
-      // },
       description: {
-        value: "",
-        isValid: false,
-      },
-      taskgivendate: {
-        value: "",
-        isValid: false,
-      },
-      // status: {
-      //   value: "",
-      //   isValid: false,
-      // },
-      dueDate: {
         value: "",
         isValid: false,
       },
@@ -56,17 +39,13 @@ const AssignTask = (props) => {
 
     try {
       const responseData = await sendRequest(
-        "http://localhost:5001/api/admin/createTask",
+        "http://localhost:5001/api/admin/createNotice",
         "POST",
         JSON.stringify({
-          employeeName: formState.inputs.employeeName.value,
-          taskName: formState.inputs.taskName.value,
-          // assignedTo: formState.inputs.assignedTo.value,
+          title: formState.inputs.title.value,
+          date: formState.inputs.date.value,
+
           description: formState.inputs.description.value,
-          taskgivendate: formState.inputs.taskgivendate.value,
-          // status: formState.inputs.status.value,
-          dueDate: formState.inputs.dueDate.value,
-          // priority: formState.inputs.priority.value,
         }),
 
         {
@@ -85,19 +64,19 @@ const AssignTask = (props) => {
       <form className="assigntask" onSubmit={taskgivenHandler}>
         {isLoading}
         <Input
-          id="employeeName"
+          id="title"
           element="input"
           type="text"
-          label="Employee Name"
+          label="Title"
           validators={[VALIDATOR_REQUIRE()]}
           onInput={inputHandler}
           errorText="Please Enter A Valid Employee Id"
         />
         <Input
-          id="taskName"
+          id="date"
           element="input"
-          type="text"
-          label="Task Name"
+          type="date"
+          label="Notice Create Date"
           validators={[VALIDATOR_REQUIRE()]}
           onInput={inputHandler}
           errorText="Please Enter A Valid Title"
@@ -107,39 +86,18 @@ const AssignTask = (props) => {
           id="description"
           element="textarea"
           type="text"
-          label="Description (Description of the task)"
+          label="Description (Description of the Notice)"
           validators={[VALIDATOR_REQUIRE(), VALIDATOR_MINLENGTH(5)]}
           onInput={inputHandler}
           errorText="Please Enter A Valid Description (At least 5 letters)"
         />
-        <Input
-          id="taskgivendate"
-          element="input"
-          type="date"
-          label="Task Given Date"
-          validators={[VALIDATOR_REQUIRE()]}
-          min="2022-01-31"
-          max="2025-12-31"
-          onInput={inputHandler}
-          errorText="Please Enter A Valid Date"
-        />
-
-        <Input
-          id="dueDate"
-          element="input"
-          type="date"
-          label="Due Date"
-          validators={[VALIDATOR_REQUIRE()]}
-          onInput={inputHandler}
-          errorText="Please Enter A Valid DueDate For This Task"
-        />
 
         <Button type="submit" disabled={!formState.isValid}>
-          ASSIGN
+          ADD
         </Button>
       </form>
     </Fragment>
   );
 };
 
-export default AssignTask;
+export default CreateNotice;

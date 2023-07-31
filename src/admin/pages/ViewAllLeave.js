@@ -33,3 +33,8 @@ const ViewAllLeave = (props) => {
 };
 
 export default ViewAllLeave;
+
+// `http://localhost:5001/api/users/${employeeId}`
+// value={loadedUser.name}
+// const [loadedUser, setLoadedUser] = useState();
+// const employeeId = useParams().employeeId;

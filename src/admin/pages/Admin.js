@@ -3,6 +3,7 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 import Button from "../../shared/components/FormElements/Button";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import AdminList from "../components/AdminList";
+import ImageSlider from "../../shared/components/FormElements/ImageSliderA";
 
 const Admin = (propos) => {
   const { error, sendRequest, clearError } = useHttpClient();
@@ -27,16 +28,17 @@ const Admin = (propos) => {
       {loadedAdmin && <AdminList items={loadedAdmin} />}
       <div>
         <div>
-          <img
+          {/* <img
             src="https://st.depositphotos.com/1002881/1285/i/950/depositphotos_12859789-stock-photo-admin-tag.jpg"
             alt="description of image"
-          />
+            // width={500}
+          /> */}
         </div>
-        ;
-        <Button Link to="/assignTask">
+        <ImageSlider />
+        {/* <Button Link to="/assignTask">
           ASSIGN TASK
         </Button>
-        {/* <Button Link to="/addNewEmployee">
+        <Button Link to="/addNewEmployee">
           ADD NEW EMPLOYEE
         </Button> */}
         <Button Link to="/taskGiventoEmployee">
@@ -44,6 +46,9 @@ const Admin = (propos) => {
         </Button>
         <Button Link to="/viewAllLeave">
           VIEW ALL LEAVE
+        </Button>
+        <Button Link to="/createNotice">
+          CREATE A NOTICE
         </Button>
       </div>
     </Fragment>

@@ -23,6 +23,7 @@ const AdminList = (props) => {
           address={user.address}
           dob={user.dateofbirth}
           phone={user.phone}
+          role={user.role}
           onDelete={props.onDeleteEmployee}
         />
       ))}

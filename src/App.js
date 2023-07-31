@@ -29,6 +29,8 @@ import LoadingSpinner from "./shared/components/UIElements/LoadingSpinner";
 import ViewAllLeave from "./admin/pages/ViewAllLeave";
 import AdminUpdateUser from "./admin/pages/UpdateUser";
 import ADDNewEmployee from "./admin/pages/NewEmployee";
+import Notice from "./users/pages/Notice";
+import CreateNotice from "./admin/pages/CreateNotice";
 
 function App() {
   // const navigate = useNavigate();
@@ -119,13 +121,17 @@ function App() {
                     <Route path="/assignTask" element={<AssignTask />} />
                     <Route
                       path="/addNewEmployee"
-                      element={<ADDNewEmployee />}
+                      element={<AddNewEmployee />}
                     />
+                    <Route path="/createNotice" element={<CreateNotice />} />
                     <Route
                       path="/taskGiventoEmployee"
                       element={<TaskGiven />}
                     />
-                    <Route path="/:id/viewProfile" element={<AdminDetails />} />
+                    <Route
+                      path="/viewProfile/:eid"
+                      element={<AdminDetails />}
+                    />
                     <Route
                       path="/viewAllEmployees"
                       element={<ViewAllEmployee />}
@@ -169,6 +175,7 @@ function App() {
                       path="/change-password"
                       element={<EmployeechangePassword />}
                     />
+                    <Route path="/notice" element={<Notice />} />
                     <Route path="/auth" element={<Auth />} />
                   </>
                 </Routes>

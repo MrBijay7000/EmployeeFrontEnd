@@ -56,7 +56,8 @@ const AssignTask = (props) => {
 
     try {
       const responseData = await sendRequest(
-        "http://localhost:5001/api/admin/createTask",
+        `http://localhost:5001/api/users/${employeeId}`,
+
         "POST",
         JSON.stringify({
           employeeName: formState.inputs.employeeName.value,

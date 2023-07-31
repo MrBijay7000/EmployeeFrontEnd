@@ -17,11 +17,14 @@ const AdminTaskList = (props) => {
         <TaskItem
           key={user.id}
           id={user.id}
-          title={user.title}
+          employeeName={user.employeeName}
+          taskName={user.taskName}
+          assignedTotartDate={user.assignedTo}
           description={user.description}
-          startDate={user.startDate}
-          endDate={user.endDate}
+          taskgivendate={user.taskgivendate}
           status={user.status}
+          dueDate={user.dueDate}
+          priority={user.priority}
           onDelete={props.onDeleteTask}
         />
       ))}

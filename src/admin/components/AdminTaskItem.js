@@ -60,13 +60,14 @@ const AdminTaskItem = (props) => {
           <Avatar image={props.image} alt={props.name} />
         </div> */}
           <div className="place-item__info">
-            <h2>Title: {props.title}</h2>
-            <h2>Reason: {props.reason}</h2>
-            <h2>StartDate: {props.startDate}</h2>
-            <h2>Status: {props.status}</h2>
-            <h3>EndDate: {props.endDate}</h3>
-            <h3>AppliedDate: {props.appliedDate}</h3>
-            <h3>Duration: {props.duration}</h3>
+            <h2>EmployeeName: {props.employeeName}</h2>
+            <h2>TaskName: {props.taskName}</h2>
+            <h2>AssignedTo: {props.assignedTo}</h2>
+            <h2>Description: {props.description}</h2>
+            <h3>Task Given Date: {props.taskgivendate}</h3>
+            <h3>Status: {props.status}</h3>
+            <h3>DueDate: {props.dueDate}</h3>
+            <h3>Priority: {props.priority}</h3>
           </div>
           <div className="place-item__actions">
             <Button danger onClick={showDeleteWarningHandler}>

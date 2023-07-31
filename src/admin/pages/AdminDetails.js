@@ -12,19 +12,20 @@ const AdminDetails = (props) => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
   const [loadedUsers, setLoadedUsers] = useState();
+  const userId = useParams().eid;
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const responseData = await sendRequest(
-          "http://localhost:5001/api/admin"
+          `http://localhost:5001/users/viewProfile/${userId}`
         );
 
         setLoadedUsers(responseData.users);
       } catch (err) {}
     };
     fetchUsers();
-  }, [sendRequest]);
+  }, [sendRequest, userId]);
 
   return (
     <React.Fragment>

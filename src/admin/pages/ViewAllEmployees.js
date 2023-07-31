@@ -20,6 +20,7 @@ const ViewAllEmployee = (props) => {
         );
 
         setLoadedUsers(responseData.users);
+        console.log({ responseData });
       } catch (err) {}
     };
     fetchUsers();

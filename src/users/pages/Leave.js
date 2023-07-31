@@ -14,10 +14,15 @@ const ApplyForLeave = (props) => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
   const navigate = useNavigate();
+  const [userRole, setUserRole] = useState("Pending");
 
   const [formState, inputHandler] = useForm(
     {
       employeeId: {
+        value: "",
+        isValid: false,
+      },
+      employeeName: {
         value: "",
         isValid: false,
       },
@@ -60,9 +65,11 @@ const ApplyForLeave = (props) => {
 
     try {
       const responseData = await sendRequest(
+        // "http://localhost:5001/api/users/applyForLeave",
         "http://localhost:5001/api/users/applyForLeave",
         "POST",
         JSON.stringify({
+          employeeName: formState.inputs.employeeName.value,
           employeeId: formState.inputs.employeeId.value,
           title: formState.inputs.title.value,
           startDate: formState.inputs.startDate.value,
@@ -70,21 +77,33 @@ const ApplyForLeave = (props) => {
           appliedDate: formState.inputs.appliedDate.value,
           duration: formState.inputs.duration.value,
           reason: formState.inputs.reason.value,
+          // status: userRole,
         }),
 
         {
           "Content-Type": "application/json",
         }
       );
+      console.log({ responseData });
+      navigate("/employee");
     } catch (err) {}
   };
 
   const applyFormHaandler = () => {
-    navigate("/employee");
+    navigate("/admin");
   };
 
   return (
     <form className="leave" onSubmit={applyForLeaveHandler}>
+      <Input
+        id="employeeName"
+        element="input"
+        type="text"
+        label="employeeName"
+        validators={[VALIDATOR_REQUIRE()]}
+        onInput={inputHandler}
+        errorText="Please Enter A Valid Employee Name"
+      />
       <Input
         id="employeeId"
         element="input"
@@ -169,6 +188,20 @@ const ApplyForLeave = (props) => {
           <option value="Rejected">Rejected</option>
         </select>
       </div> */}
+      {/* <div className="form-control">
+        <label>Role </label>
+        <select
+          className="form-control"
+          required
+          onChange={(e) => {
+            setUserRole(e.target.value);
+          }}
+        >
+          <option value="Pending">Pending</option>
+          <option value="Approved">Approved</option>
+          <option value="Rejected">Rejected</option>
+        </select>
+      </div> */}
 
       {/* <Input
         id="status"
@@ -183,7 +216,7 @@ const ApplyForLeave = (props) => {
       <Button
         type="submit"
         disabled={!formState.isValid}
-        onClick={applyFormHaandler}
+        // onClick={applyFormHaandler}
       >
         APPLY
       </Button>

@@ -4,8 +4,9 @@ import TaskList from "../components/TaskList";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
+import NoticeList from "../components/NoticeList";
 
-const ViewTask = (props) => {
+const Notice = (props) => {
   // const [formState, inputHandler] = useForm(
   //   {
   //     date: {
@@ -30,11 +31,10 @@ const ViewTask = (props) => {
     const fetchUsers = async () => {
       try {
         const responseData = await sendRequest(
-          "http://localhost:5001/api/admin/viewTask"
+          "http://localhost:5001/api/admin/getNotice"
         );
-
         console.log({ responseData });
-        setLoadedTasks(responseData.tasks);
+        setLoadedTasks(responseData.notices);
       } catch (err) {}
     };
     fetchUsers();
@@ -44,7 +44,7 @@ const ViewTask = (props) => {
     <div>
       <ErrorModal error={error} onClear={clearError} />
 
-      {loadedTasks && <TaskList items={loadedTasks} />}
+      {loadedTasks && <NoticeList items={loadedTasks} />}
     </div>
     // <form className="leave">
     //   <Input
@@ -80,4 +80,4 @@ const ViewTask = (props) => {
     // </form>
   );
 };
-export default ViewTask;
+export default Notice;

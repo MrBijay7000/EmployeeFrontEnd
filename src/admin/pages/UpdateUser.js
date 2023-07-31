@@ -69,7 +69,7 @@ const AdminUpdateUser = () => {
               isValid: true,
             },
             dateofbirth: {
-              value: responseData.user.dateofbirth,
+              value: responseData.user.dob,
               isValid: true,
             },
             email: {
